@@ -1,0 +1,44 @@
+{
+  "title": "www",
+  "name": "www",
+  "author": "J Max Pugliese",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Public facade",
+  "scripts": {
+    "build": "APP_ENV='development' webpack --progress --colors && npm run copy",
+    "copy": "npm run copy:index",
+    "copy:index": "cp -R src/index.html build/index.html",
+    "dist": "APP_ENV='production' webpack -p && npm run copy",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:css": "sass-lint -q -v",
+    "lint:js": "eslint ./",
+    "start": "npm run build && webpack-dev-server --https --content-base build/",
+    "test": "npm run lint"
+  },
+  "dependencies": {
+    "debug": "^2.6.0",
+    "lodash": "^4.17.4",
+    "vue": "^2.2.1",
+    "vue-router": "^2.3.0",
+    "webpack": "^2.6.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.0",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "node-sass": "^4.3.0",
+    "sass-lint": "^1.10.2",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.7",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
